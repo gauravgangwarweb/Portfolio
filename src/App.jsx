@@ -4,6 +4,9 @@ import Hero from "./components/hero"
 import Navbar from "./components/navbar"
 import SplashScreen from "./components/splashScreen"
 import supabase from "./assets/supabese"
+import TechSection from "./components/techSection"
+import ProjectSection from "./components/projectSection"
+import Footer from "./components/footer"
 
 function App() {
   const [about, setAbout] = useState('');
@@ -13,10 +16,10 @@ function App() {
     try {
       const res = await supabase.from('about').select('*');
       setAbout(res.data[0].data);
-      setIsLoading(false); // Set isLoading to false when data is loaded
+      setIsLoading(false); 
     } catch (error) {
       console.error('Error fetching data:', error);
-      setIsLoading(false); // Set isLoading to false even in case of an error
+      setIsLoading(false);
     }
   };
 
@@ -29,12 +32,15 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
   return (
-    <div className="text-black main-bg">
+    <div className="text-black main-bg red">
       {isLoading ?
        <SplashScreen /> :
        <>
         <Hero />
         <About />
+        <TechSection />
+        {/* <ProjectSection /> */}
+        {/* <Footer /> */}
       </>
        }
     </div>
