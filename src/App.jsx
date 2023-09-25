@@ -32,7 +32,7 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
   return (
-    <div className="text-black main-bg red">
+    <div className="text-black main-bg">
       {isLoading ?
        <SplashScreen /> :
        <>

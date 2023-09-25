@@ -20,7 +20,7 @@ const Hero = () => {
                 <motion.h2
                     className="md:text-8xl text-6xl font-black skranji text-[#f37f66] mt-4 text-center md:text-start"
                     initial={{ x: 100, opacity: 0 }}
-                    animate={inView ? { x: 0, opacity: 1 } : ""}
+                    animate={{ x: 0, opacity: 1 }}
                     transition={{ duration: 0.5, delay: 1 }}
                 >
                     GAURAV GANGWAR
