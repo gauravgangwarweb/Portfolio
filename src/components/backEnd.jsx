@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import supabase from "../assets/supabese";
-import { motion, transform } from "framer-motion";
+import { useInView } from 'react-intersection-observer'
+import { motion } from "framer-motion";
 
 const BackEnd = () => {
+    const { ref, inView } = useInView();
     const [tech, setTech] = useState()
     const [loading, setLoading] = useState(true)
     const getData = async () => {
@@ -20,17 +22,25 @@ const BackEnd = () => {
     }, [])
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0, x: -20 }} 
+            animate={inView ? { opacity: 1, x: 0 } : ""}
+            transition={{ duration: 1 }}
+            ref={ref}
+        >
             <h5 className="md:text-4xl text-2xl font-bold caveat md:mt-20 mt-10">Back-End</h5>
-            <div className="flex justify-start mt-5 gap-10">
+            <div className="flex flex-wrap justify-start mt-5 gap-10">
                 {
                     loading ? (
                         <p>Loading</p>
                     ) : (
                         tech.map((e) => (
                             <motion.div
-                                className="flex flex-col items-center"
+                                className="flex flex-col items-center gap-2"
                                 key={e.id}
+                                initial={{ opacity: 0 }}
+                                animate={inView ? { opacity: 1 } : ""}
+                                transition={{ duration: 1, delay: 0.2 }}
                             >
                                 <img src={e.icon} alt={e.name} className="md:w-20 w-10" />
                                 <p className="text-center font-medium">{e.name}</p>
@@ -39,7 +49,7 @@ const BackEnd = () => {
                     )
                 }
             </div>
-        </div>
+        </motion.div>
     );
 }
 

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import supabase from "../assets/supabese";
 import { useInView } from 'react-intersection-observer'
+import { motion } from "framer-motion";
 
 const FrontEnd = () => {
     const { ref, inView } = useInView();
@@ -21,7 +22,12 @@ const FrontEnd = () => {
     }, [])
 
     return (
-        <div>
+        <motion.div
+            initial={{ opacity: 0, x: -20 }} 
+            animate={inView ? { opacity: 1, x: 0 } : ""}
+            transition={{ duration: 1 }}
+            ref={ref}
+        >
             <h5 className="md:text-4xl text-2xl font-bold caveat md:mt-20 mt-10">Front-End</h5>
             <div className="flex flex-wrap justify-start mt-5 gap-10">
                 {
@@ -29,21 +35,21 @@ const FrontEnd = () => {
                         <p>Loading</p>
                     ) : (
                         tech.map((e) => (
-                            <div
-                                className="flex flex-col items-center"
+                            <motion.div
+                                className="flex flex-col items-center gap-2"
                                 key={e.id}
                                 initial={{ opacity: 0 }}
                                 animate={inView ? { opacity: 1 } : ""}
-                                transition={{ duration: 2 }}
+                                transition={{ duration: 1, delay: 0.2 }}
                             >
                                 <img src={e.icon} alt={e.name} className="md:w-20 w-10" />
                                 <p className="text-center font-medium">{e.name}</p>
-                            </div>
+                            </motion.div>
                         ))
                     )
                 }
             </div>
-        </div>
+        </motion.div>
     );
 }
 
