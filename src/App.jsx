@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react"
-import About from "./components/about"
-import Hero from "./components/hero"
-import Navbar from "./components/navbar"
-import SplashScreen from "./components/splashScreen"
+import About from "./components/About"
+import Hero from "./components/Hero"
+import Navbar from "./components/Navbar"
+import SplashScreen from "./components/SplashScreen"
 import supabase from "./assets/supabese"
-import TechSection from "./components/techSection"
-import ProjectSection from "./components/projectSection"
-import Footer from "./components/footer"
+import TechSection from "./components/TechSection"
+import ProjectSection from "./components/ProjectSection"
+import Footer from "./components/Footer"
+import { Provider } from "react-redux"
+import { store } from "./redux/store"
 
 function App() {
   const [about, setAbout] = useState('');
@@ -16,7 +18,7 @@ function App() {
     try {
       const res = await supabase.from('about').select('*');
       setAbout(res.data[0].data);
-      setIsLoading(false); 
+      setIsLoading(false);
     } catch (error) {
       console.error('Error fetching data:', error);
       setIsLoading(false);
@@ -32,18 +34,20 @@ function App() {
     return () => clearTimeout(timeoutId);
   }, []);
   return (
-    <div className="text-black main-bg">
-      {isLoading ?
-       <SplashScreen /> :
-       <>
-        <Hero />
-        <About />
-        <TechSection />
-        {/* <ProjectSection /> */}
-        {/* <Footer /> */}
-      </>
-       }
-    </div>
+    <Provider store={store} >
+      <div className="text-black main-bg">
+        {isLoading ?
+          <SplashScreen /> :
+          <>
+            <Hero />
+            <About />
+            <TechSection />
+            <ProjectSection />
+            {/* <Footer /> */}
+          </>
+        }
+      </div>
+    </Provider>
   )
 }
 

@@ -1,11 +1,11 @@
 import { useInView } from 'react-intersection-observer';
 import supabase from "../assets/supabese";
-import FrontEnd from "./frontEnd";
-import BackEnd from "./backEnd";
-import Tools from "./tools";
-import Design from "./design";
-import Communication from "./communication";
-import SoftSkills from "./softSkills";
+import FrontEnd from "./FrontEnd";
+import BackEnd from "./BackEnd";
+import Tools from "./Tools";
+import Design from "./Design";
+import Communication from "./Communication";
+import SoftSkills from "./SoftSkills";
 import { motion } from 'framer-motion';
 
 const TechSection = () => {
