@@ -10,7 +10,6 @@ const ProjectSection = () => {
     const hide = useSelector(state => state.hide.hide)
     const { ref, inView } = useInView();
     const [projects, setProjects] = useState()
-    const [selPrj, setSelPrj] = useState({})
     const [loading, setLoading] = useState(true)
     const getData = async () => {
         try {
@@ -43,7 +42,7 @@ const ProjectSection = () => {
                             <p>Loading</p>
                         ) : (
                             projects.map((e) => (
-                                <ProjectCard id={e.id} name={e.name} image={e.image} />
+                                <ProjectCard id={e.id} name={e.name} image={e.image} data={e} />
                             ))
                         )
                     }

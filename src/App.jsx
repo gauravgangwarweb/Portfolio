@@ -35,7 +35,7 @@ function App() {
   }, []);
   return (
     <Provider store={store} >
-      <div className="text-black main-bg">
+      <div className="text-black main-bg z-0">
         {isLoading ?
           <SplashScreen /> :
           <>

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    hide: false
+    hide: true
 }
 
 export const hideSlice = createSlice({
