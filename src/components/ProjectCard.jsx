@@ -12,8 +12,8 @@ const ProjectCard = (props) => {
             ref={ref}
             className="w-full px-4 pt-5 pb-3 rounded-lg bg-anim1 cursor-pointer hover-effect hover-effect"
             key={props.id}
-            initial={{ opacity: 0 }}
-            animate={inView ? { opacity: 1 } : ""}
+            initial={{ opacity: 0, y: 10 }}
+            animate={inView ? { opacity: 1, y: 0 } : ""}
             transition={{ duration: 1, delay: 0.2 }}
             onClick={() => {dispatch(setHide(false)); dispatch(setSelectedPrj(props.data))}}
         >

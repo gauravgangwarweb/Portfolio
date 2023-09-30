@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import About from "./components/About"
+import About from "./components/AboutSection"
 import Hero from "./components/Hero"
 import Navbar from "./components/Navbar"
 import SplashScreen from "./components/SplashScreen"
@@ -9,6 +9,7 @@ import ProjectSection from "./components/ProjectSection"
 import Footer from "./components/Footer"
 import { Provider } from "react-redux"
 import { store } from "./redux/store"
+import TestimonialSection from "./components/TestimonialsSection"
 
 function App() {
   const [about, setAbout] = useState('');
@@ -26,7 +27,7 @@ function App() {
   };
 
   useEffect(() => {
-    const delay = 1000;
+    const delay = 500;
     const timeoutId = setTimeout(() => {
       getData();
     }, delay);
@@ -43,6 +44,7 @@ function App() {
             <About />
             <TechSection />
             <ProjectSection />
+            <TestimonialSection />
             {/* <Footer /> */}
           </>
         }
