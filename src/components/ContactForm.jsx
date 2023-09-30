@@ -3,17 +3,31 @@ import { useForm, ValidationError } from '@formspree/react';
 const ContactForm = () => {
     const [state, handleSubmit] = useForm("xyyqbeyk");
     if (state.succeeded) {
-        return <p>Thanks for joining!</p>;
+        return <p className="text-center text-red-600 text-lg font-semibold">Thanks for reaching me!</p>;
     }
     return (
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="email">
-                Email Address
-            </label>
+        <form
+            onSubmit={handleSubmit}
+            className="flex flex-col gap-4"
+        >
+            <input
+                id="name"
+                type="text"
+                name="name"
+                placeholder="Name"
+                className="w-full px-2 py-2 rounded-md border border-black"
+            />
+            <ValidationError
+                prefix="Name"
+                field="name"
+                errors={state.errors}
+            />
             <input
                 id="email"
                 type="email"
                 name="email"
+                placeholder="Email"
+                className="w-full px-2 py-2 rounded-md border border-black"
             />
             <ValidationError
                 prefix="Email"
@@ -23,14 +37,20 @@ const ContactForm = () => {
             <textarea
                 id="message"
                 name="message"
+                className="w-full px-2 py-2 rounded-md border border-black h-20"
+                placeholder="What would you like to say"
             />
             <ValidationError
                 prefix="Message"
                 field="message"
                 errors={state.errors}
             />
-            <button type="submit" disabled={state.submitting}>
-                Submit
+            <button 
+            type="submit" 
+            disabled={state.submitting}
+            className="hover:bg-[#f37f66] bg-[#ff986b] py-2 rounded-md font-bold text-lg text-white"
+            >
+                Get In Touch
             </button>
         </form>
     );

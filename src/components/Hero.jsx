@@ -15,7 +15,7 @@ const Hero = () => {
                     animate={inView ? { x: 0, opacity: 1 }: ""}
                     transition={{ duration: 1 }}
                 >
-                    Hii👋 I'm
+                    Hii 👋 I'm
                 </motion.h4>
                 <motion.h2
                     className="md:text-8xl text-6xl font-black skranji text-[#f37f66] mt-4 text-center md:text-start"

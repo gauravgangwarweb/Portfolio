@@ -47,7 +47,7 @@ function App() {
             <ProjectSection />
             <TestimonialSection />
             <ContactSection />
-            {/* <Footer /> */}
+            <Footer />
           </>
         }
       </div>
