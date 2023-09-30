@@ -10,6 +10,7 @@ import Footer from "./components/Footer"
 import { Provider } from "react-redux"
 import { store } from "./redux/store"
 import TestimonialSection from "./components/TestimonialsSection"
+import ContactSection from "./components/ContactSection"
 
 function App() {
   const [about, setAbout] = useState('');
@@ -45,6 +46,7 @@ function App() {
             <TechSection />
             <ProjectSection />
             <TestimonialSection />
+            <ContactSection />
             {/* <Footer /> */}
           </>
         }
