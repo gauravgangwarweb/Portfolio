@@ -13,7 +13,6 @@ const TestimonialSection = () => {
         try {
             const res = await supabase.from("testimonials").select("*")
             setTesti(res.data)
-            console.log(res.data);
             setLoading(false)
         } catch (error) {
             console.log("There was some error in fetching data")
@@ -38,7 +37,7 @@ const TestimonialSection = () => {
                             <p>Loading</p>
                         ) : (
                             testi.map((e) => (
-                                <TestimonialCard id={e.id} name={e.name} image={e.image} desig={e.desig} desc={e.desc} />
+                                <TestimonialCard key={e.id} id={e.id} name={e.name} image={e.image} desig={e.desig} desc={e.desc} />
                             ))
                         )
                     }
