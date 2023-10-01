@@ -44,7 +44,7 @@ const ContactSection = () => {
                     <motion.div
                         className="md:w-5/12 w-full md:mt-0 mt-16"
                         initial={{ opacity: 0, x: 20 }}
-                        animate={isInVIew ? { opacity: 1, x: 0 } : ""}
+                        animate={isInVIew ? { opacity: 1, x: 0 } : {opacity: 0, x: 0}}
                         transition={{ duration: 1 }}
                     >
                         <ContactForm />
