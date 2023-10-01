@@ -42,7 +42,7 @@ const ProjectSection = () => {
                             <p>Loading</p>
                         ) : (
                             projects.map((e) => (
-                                <ProjectCard id={e.id} name={e.name} image={e.image} data={e} />
+                                <ProjectCard key={e.id} id={e.id} name={e.name} image={e.image} data={e} />
                             ))
                         )
                     }
