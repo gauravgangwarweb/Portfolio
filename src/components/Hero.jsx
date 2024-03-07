@@ -5,7 +5,7 @@ import { useInView } from 'react-intersection-observer'
 const Hero = () => {
     const { ref, inView } = useInView();
     const designations = ["Full Stack Web Developer", "Software Developer", "Frontend Developer", "Backend Developer"]
-    console.log(inView);
+    // console.log(inView);
     return (
         <div ref={ref} className="w-full h-screen flex flex-col justify-center items-center">
             <div className="flex flex-col">
